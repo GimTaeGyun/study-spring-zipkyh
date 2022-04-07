@@ -9,7 +9,15 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //DI 방식 이전에 사용했던 소스
+//    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //DI 방식으로 변경 후 사용하는 소스
+    private final MemberRepository memberRepository;
+
+    //외부에서 주입하는 방식
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원 가입
